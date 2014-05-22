@@ -153,13 +153,13 @@ class WorkItem(object):
     def projects(self):
         """Sequence of all the projects for this item."""
 
-        return itertools.ifilter(operator.methodcaller('startswith', '@'), self._projectsContexts)
+        return itertools.ifilter(operator.methodcaller('startswith', '+'), self._projectsContexts)
         
     @property
     def contexts(self):
         """Sequence of all the contexts for this item."""
 
-        return itertools.ifilter(operator.methodcaller('startswith', '+'), self._projectsContexts)
+        return itertools.ifilter(operator.methodcaller('startswith', '@'), self._projectsContexts)
 
 class InProgressItem(WorkItem):
     """A work item that is not yet complete."""
